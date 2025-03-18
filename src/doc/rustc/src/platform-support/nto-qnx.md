@@ -135,7 +135,7 @@ export build_env='
     CXX_aarch64-unknown-nto-qnx710=qcc
     AR_aarch64_unknown_nto_qnx710=ntoaarch64-ar
     CC_x86_64-pc-nto-qnx710=qcc
-    CFLAGS_x86_64-pc-nto-qnx710=-Vgcc_ntox86_64_cxx
+    CFLAGS_x86_64-pc-nto-qnx710=-Vgcc_ntox86_64
     CXX_x86_64-pc-nto-qnx710=qcc
     AR_x86_64_pc_nto_qnx710=ntox86_64-ar'
 
@@ -163,7 +163,7 @@ export build_env='
     CXX_aarch64-unknown-nto-qnx710=qcc
     AR_aarch64_unknown_nto_qnx710=ntoaarch64-ar
     CC_x86_64-pc-nto-qnx710=qcc
-    CFLAGS_x86_64-pc-nto-qnx710=-Vgcc_ntox86_64_cxx
+    CFLAGS_x86_64-pc-nto-qnx710=-Vgcc_ntox86_64
     CXX_x86_64-pc-nto-qnx710=qcc
     AR_x86_64_pc_nto_qnx710=ntox86_64-ar'
 

@@ -1,0 +1,77 @@
+--- build/x86_64-pc-nto-qnx710/llvm/build/compile_commands.json.old	2025-03-16 19:54:26.783701004 +0100
++++ build/x86_64-pc-nto-qnx710/llvm/build/compile_commands.json	2025-03-17 06:09:16.088029664 +0100
+@@ -943,25 +943,25 @@
+ },
+ {
+   "directory": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build",
+-  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse2_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse2_x86-64_unix.S",
++  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse2_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse2_x86-64_unix.S",
+   "file": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse2_x86-64_unix.S",
+   "output": "lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse2_x86-64_unix.S.o"
+ },
+ {
+   "directory": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build",
+-  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse41_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse41_x86-64_unix.S",
++  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse41_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse41_x86-64_unix.S",
+   "file": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse41_x86-64_unix.S",
+   "output": "lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse41_x86-64_unix.S.o"
+ },
+ {
+   "directory": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build",
+-  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx2_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx2_x86-64_unix.S",
++  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx2_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx2_x86-64_unix.S",
+   "file": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx2_x86-64_unix.S",
+   "output": "lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx2_x86-64_unix.S.o"
+ },
+ {
+   "directory": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build",
+-  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -mavx512vl -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx512_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx512_x86-64_unix.S",
++  "command": "/home/erik/qnx800/host/linux/x86_64/usr/bin/qcc -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include  -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -mavx512vl -o lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx512_x86-64_unix.S.o -c /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx512_x86-64_unix.S",
+   "file": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx512_x86-64_unix.S",
+   "output": "lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx512_x86-64_unix.S.o"
+ },
+@@ -17075,4 +17075,4 @@
+   "file": "/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/tools/yaml2obj/yaml2obj.cpp",
+   "output": "tools/yaml2obj/CMakeFiles/yaml2obj.dir/yaml2obj.cpp.o"
+ }
+-]
+\ Ingen nyrad vid filslut
++]
+--- build/x86_64-pc-nto-qnx710/llvm/build/build.ninja	2025-03-17 06:35:53.107108762 +0100
++++ build/x86_64-pc-nto-qnx710/llvm/build/build.ninja.new	2025-03-17 06:35:53.119109362 +0100
+@@ -2280,7 +2280,7 @@
+ build lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse2_x86-64_unix.S.o: ASM_COMPILER__LLVMSupportBlake3_unscanned_Release /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse2_x86-64_unix.S || cmake_object_order_depends_target_LLVMSupportBlake3
+   DEFINES = -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+   DEP_FILE = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse2_x86-64_unix.S.o.d
+-  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG
++  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG
+   INCLUDES = -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include
+   OBJECT_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir
+   OBJECT_FILE_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir
+@@ -2291,7 +2291,7 @@
+ build lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse41_x86-64_unix.S.o: ASM_COMPILER__LLVMSupportBlake3_unscanned_Release /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_sse41_x86-64_unix.S || cmake_object_order_depends_target_LLVMSupportBlake3
+   DEFINES = -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+   DEP_FILE = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_sse41_x86-64_unix.S.o.d
+-  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG
++  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG
+   INCLUDES = -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include
+   OBJECT_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir
+   OBJECT_FILE_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir
+@@ -2302,7 +2302,7 @@
+ build lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx2_x86-64_unix.S.o: ASM_COMPILER__LLVMSupportBlake3_unscanned_Release /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx2_x86-64_unix.S || cmake_object_order_depends_target_LLVMSupportBlake3
+   DEFINES = -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+   DEP_FILE = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx2_x86-64_unix.S.o.d
+-  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG
++  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG
+   INCLUDES = -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include
+   OBJECT_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir
+   OBJECT_FILE_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir
+@@ -2313,7 +2313,7 @@
+ build lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx512_x86-64_unix.S.o: ASM_COMPILER__LLVMSupportBlake3_unscanned_Release /Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3/blake3_avx512_x86-64_unix.S || cmake_object_order_depends_target_LLVMSupportBlake3
+   DEFINES = -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
+   DEP_FILE = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir/blake3_avx512_x86-64_unix.S.o.d
+-  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 --target=x86_64-pc-unknown -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -mavx512vl
++  FLAGS = -ffunction-sections -fdata-sections -fPIC -m64 -Y_cxx -D_QNX_SOURCE=1 -fPIC -O3 -DNDEBUG -mavx512vl
+   INCLUDES = -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/lib/Support/BLAKE3 -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/build/x86_64-pc-nto-qnx710/llvm/build/include -I/Enigma/devel/ubuntu/rust-build/rustc-1.85.0-src-qnx3/src/llvm-project/llvm/include
+   OBJECT_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir
+   OBJECT_FILE_DIR = lib/Support/BLAKE3/CMakeFiles/LLVMSupportBlake3.dir

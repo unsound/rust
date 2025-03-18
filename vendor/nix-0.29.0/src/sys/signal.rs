@@ -114,7 +114,8 @@ libc_enum! {
         SIGEMT,
         #[cfg(not(any(linux_android, target_os = "emscripten",
                       target_os = "fuchsia", target_os = "redox",
-                      target_os = "haiku", target_os = "aix")))]
+                      target_os = "haiku", target_os = "aix",
+                      target_os = "nto")))]
         /// Information request
         SIGINFO,
     }
@@ -191,6 +192,7 @@ impl FromStr for Signal {
                 target_os = "fuchsia",
                 target_os = "redox",
                 target_os = "aix",
+                target_os = "nto",
                 target_os = "haiku"
             )))]
             "SIGINFO" => Signal::SIGINFO,
@@ -274,6 +276,7 @@ impl Signal {
                 target_os = "fuchsia",
                 target_os = "redox",
                 target_os = "aix",
+                target_os = "nto",
                 target_os = "haiku"
             )))]
             Signal::SIGINFO => "SIGINFO",
@@ -365,11 +368,11 @@ const SIGNALS: [Signal; 30] = [
     target_os = "haiku"
 )))]
 #[cfg(feature = "signal")]
-const SIGNALS: [Signal; 31] = [
+const SIGNALS: [Signal; 30] = [
     SIGHUP, SIGINT, SIGQUIT, SIGILL, SIGTRAP, SIGABRT, SIGBUS, SIGFPE, SIGKILL,
     SIGUSR1, SIGSEGV, SIGUSR2, SIGPIPE, SIGALRM, SIGTERM, SIGCHLD, SIGCONT,
     SIGSTOP, SIGTSTP, SIGTTIN, SIGTTOU, SIGURG, SIGXCPU, SIGXFSZ, SIGVTALRM,
-    SIGPROF, SIGWINCH, SIGIO, SIGSYS, SIGEMT, SIGINFO,
+    SIGPROF, SIGWINCH, SIGIO, SIGSYS, SIGEMT,
 ];
 
 feature! {
@@ -439,12 +442,14 @@ libc_bitflags! {
         SA_NODEFER;
         /// The system will deliver the signal to the process on a signal stack,
         /// specified by each thread with sigaltstack(2).
+        #[cfg(not(target_os = "nto"))]
         SA_ONSTACK;
         /// The handler is reset back to the default at the moment the signal is
         /// delivered.
         SA_RESETHAND;
         /// Requests that certain system calls restart if interrupted by this
         /// signal.  See the man page for complete details.
+        #[cfg(not(target_os = "nto"))]
         SA_RESTART;
         /// This flag is controlled internally by Nix.
         SA_SIGINFO;

@@ -10,6 +10,10 @@
 //
 //===----------------------------------------------------------------------===//
 
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "Unix.h"
 #include "llvm/ADT/Hashing.h"
 #include "llvm/ADT/StringRef.h"

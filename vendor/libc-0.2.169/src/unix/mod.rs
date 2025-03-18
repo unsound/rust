@@ -1650,7 +1650,7 @@ cfg_if! {
                 readfds: *mut fd_set,
                 writefds: *mut fd_set,
                 errorfds: *mut fd_set,
-                timeout: *mut timespec,
+                timeout: *const timespec,
                 sigmask: *const sigset_t,
             ) -> c_int;
             pub fn sigaction(signum: c_int, act: *const sigaction, oldact: *mut sigaction)

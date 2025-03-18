@@ -381,7 +381,7 @@ pub(crate) fn spawn(
         }
     }
 
-    cargo_output.print_debug(&format_args!("running: {:?}", cmd));
+    cargo_output.print_debug(&format_args!("running (cc6/lib): {:?}", cmd));
 
     let cmd = ResetStderr(cmd);
     let child = cmd

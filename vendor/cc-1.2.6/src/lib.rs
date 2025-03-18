@@ -2099,9 +2099,9 @@ impl Build {
                     // This assumes qcc/q++ as compiler, which is currently the only supported compiler for QNX.
                     // See for details: https://github.com/rust-lang/cc-rs/pull/1319
                     let arg = match target.arch {
-                        "i586" => "-Vgcc_ntox86_cxx",
-                        "aarch64" => "-Vgcc_ntoaarch64le_cxx",
-                        "x86_64" => "-Vgcc_ntox86_64_cxx",
+                        "i586" => "-Vgcc_ntox86",
+                        "aarch64" => "-Vgcc_ntoaarch64le",
+                        "x86_64" => "-Vgcc_ntox86_64",
                         _ => {
                             return Err(Error::new(
                                 ErrorKind::InvalidTarget,

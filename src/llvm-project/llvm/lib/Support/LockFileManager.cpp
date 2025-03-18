@@ -6,6 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "llvm/Support/LockFileManager.h"
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/StringExtras.h"

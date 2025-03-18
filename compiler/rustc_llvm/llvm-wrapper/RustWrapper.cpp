@@ -1,3 +1,7 @@
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "LLVMWrapper.h"
 
 #include "llvm-c/Analysis.h"

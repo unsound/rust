@@ -56,7 +56,7 @@ fn run_tests(builder: &Builder<'_>, cmd: &mut BootstrapCommand, stream: bool) ->
     let cmd = cmd.as_command_mut();
     cmd.stdout(Stdio::piped());
 
-    builder.verbose(|| println!("running: {cmd:?}"));
+    builder.verbose(|| println!("running(f): {cmd:?}"));
 
     let mut process = cmd.spawn().unwrap();
 

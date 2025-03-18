@@ -158,7 +158,7 @@ pub mod round_float {
 }
 
 pub fn run_command(cmd: &mut Command) -> anyhow::Result<()> {
-    log::trace!("running: {:?}", cmd);
+    log::trace!("running (perf-collector): {:?}", cmd);
     let status = cmd.status()?;
     if !status.success() {
         return Err(anyhow::anyhow!("expected success {:?}", status));

@@ -18,7 +18,7 @@ pub(crate) fn target() -> Target {
             plt_by_default: false,
             max_atomic_width: Some(64),
             pre_link_args: TargetOptions::link_args(LinkerFlavor::Gnu(Cc::Yes, Lld::No), &[
-                "-Vgcc_ntox86_64_cxx",
+                "-Vgcc_ntox86_64",
             ]),
             env: "nto71".into(),
             vendor: "pc".into(),

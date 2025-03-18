@@ -10,6 +10,10 @@
 //
 //===----------------------------------------------------------------------===//
 
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "llvm/Support/Path.h"
 #include "llvm/ADT/ArrayRef.h"
 #include "llvm/ADT/ScopeExit.h"

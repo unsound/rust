@@ -10,6 +10,10 @@
 //
 //===----------------------------------------------------------------------===//
 
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/ADT/StringExtras.h"
 #include "llvm/Config/config.h"

@@ -464,7 +464,7 @@ impl<'a> LintExtractor<'a> {
         cmd.arg("lint_example.rs");
         cmd.current_dir(tempdir.path());
         if self.verbose {
-            eprintln!("running: {cmd:?}");
+            eprintln!("running (lint-docs): {cmd:?}");
         }
         let output = cmd.output().map_err(|e| format!("failed to run command {:?}\n{}", cmd, e))?;
         let stderr = std::str::from_utf8(&output.stderr).unwrap();

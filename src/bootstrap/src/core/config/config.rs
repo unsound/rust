@@ -2321,7 +2321,7 @@ impl Config {
         if self.dry_run() {
             return Ok(());
         }
-        self.verbose(|| println!("running: {cmd:?}"));
+        self.verbose(|| println!("running(c): {cmd:?}"));
         build_helper::util::try_run(cmd, self.is_verbose())
     }
 

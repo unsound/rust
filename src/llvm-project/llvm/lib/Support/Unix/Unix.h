@@ -18,6 +18,10 @@
 //===          is guaranteed to work on all UNIX variants.
 //===----------------------------------------------------------------------===//
 
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "llvm/Config/config.h"
 #include "llvm/Support/Chrono.h"
 #include "llvm/Support/Errno.h"

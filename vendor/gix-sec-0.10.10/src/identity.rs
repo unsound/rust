@@ -40,7 +40,7 @@ mod impl_ {
             // SAFETY: there is no documented possibility for failure
             #[allow(unsafe_code)]
             let uid = unsafe { libc::geteuid() };
-            Ok(uid)
+            Ok(uid as u32)
         }
         use std::str::FromStr;
 

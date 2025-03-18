@@ -6,6 +6,7 @@ use std::os::unix::io::{FromRawFd, RawFd};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::{io, ptr};
 
+#[cfg(not(target_os = "nto"))]
 use crate::advice::Advice;
 
 #[cfg(any(
@@ -241,6 +242,7 @@ impl MmapInner {
         self.len
     }
 
+    #[cfg(not(target_os = "nto"))]
     pub fn advise(&self, advice: Advice, offset: usize, len: usize) -> io::Result<()> {
         let alignment = (self.ptr as usize + offset) % page_size();
         let offset = offset as isize - alignment as isize;

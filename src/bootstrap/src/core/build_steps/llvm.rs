@@ -303,6 +303,7 @@ impl Step for Llvm {
         };
 
         // If LLVM has already been built or been downloaded through download-ci-llvm, we avoid building it again.
+        println!("Checking prebuilt llvm config.");
         let Meta { stamp, res, out_dir, root } = match prebuilt_llvm_config(builder, target, true) {
             LlvmBuildStatus::AlreadyBuilt(p) => return p,
             LlvmBuildStatus::ShouldBuild(m) => m,
@@ -346,6 +347,8 @@ impl Step for Llvm {
         let plugins = if builder.config.llvm_plugins { "ON" } else { "OFF" };
         let enable_tests = if builder.config.llvm_tests { "ON" } else { "OFF" };
         let enable_warnings = if builder.config.llvm_enable_warnings { "ON" } else { "OFF" };
+
+        println!("target_native: {target_native}");
 
         cfg.out_dir(&out_dir)
             .profile(profile)
@@ -535,18 +538,61 @@ impl Step for Llvm {
             cfg.define("LLVM_VERSION_SUFFIX", suffix);
         }
 
+        println!("configuring cmake (ldflags={{ .exe={0:?}, .shared={1:?}, .module={2:?} }}", ldflags.exe.to_str(), ldflags.shared.to_str(), ldflags.module.to_str());
         configure_cmake(builder, target, &mut cfg, true, ldflags, &[]);
+        println!("configuring llvm");
         configure_llvm(builder, target, &mut cfg);
+        println!("done configuring cmake/llvm");
 
         for (key, val) in &builder.config.llvm_build_config {
+            println!("Adding key-value pair: {key} -> {val}...");
             cfg.define(key, val);
         }
+        /*
+pub struct Config {
+    path: PathBuf,
+    generator: Option<OsString>,
+    generator_toolset: Option<OsString>,
+    cflags: OsString,
+    cxxflags: OsString,
+    asmflags: OsString,
+    defines: Vec<(OsString, OsString)>,
+    deps: Vec<String>,
+    target: Option<String>,
+    host: Option<String>,
+    out_dir: Option<PathBuf>,
+    profile: Option<String>,
+    configure_args: Vec<OsString>,
+    build_args: Vec<OsString>,
+    cmake_target: Option<String>,
+    env: Vec<(OsString, OsString)>,
+    static_crt: Option<bool>,
+    uses_cxx11: bool,
+    always_configure: bool,
+    no_build_target: bool,
+    verbose_cmake: bool,
+    verbose_make: bool,
+    pic: Option<bool>,
+    c_cfg: Option<cc::Build>,
+    cxx_cfg: Option<cc::Build>,
+    env_cache: HashMap<String, Option<OsString>>,
+}
+         */
 
+        println!("Defines:");
+        /*
+        for (key, val) in &cfg.defines {
+            println!("  {key} -> {val}");
+        }
+         */
+        
         if builder.config.dry_run() {
             return res;
         }
 
+        println!("Building config...");
         cfg.build();
+        println!("Finished building config...");
 
         // Helper to find the name of LLVM's shared library on darwin and linux.
         let find_llvm_lib_name = |extension| {
@@ -657,6 +703,8 @@ fn configure_cmake(
             cfg.define("CMAKE_SYSTEM_NAME", "SunOS");
         } else if target.contains("linux") {
             cfg.define("CMAKE_SYSTEM_NAME", "Linux");
+        } else if target.contains("nto") {
+            cfg.define("CMAKE_SYSTEM_NAME", "QNX");
         } else {
             builder.info(&format!(
                 "could not determine CMAKE_SYSTEM_NAME from the target `{target}`, build may fail",
@@ -775,6 +823,7 @@ fn configure_cmake(
     }
 
     if builder.config.llvm_clang_cl.is_some() {
+        println!("Adding target (2).");
         cflags.push(format!(" --target={target}"));
     }
     cfg.define("CMAKE_C_FLAGS", cflags);
@@ -794,6 +843,7 @@ fn configure_cmake(
         cxxflags.push(s);
     }
     if builder.config.llvm_clang_cl.is_some() {
+        println!("Adding target (1).");
         cxxflags.push(format!(" --target={target}"));
     }
     cfg.define("CMAKE_CXX_FLAGS", cxxflags);

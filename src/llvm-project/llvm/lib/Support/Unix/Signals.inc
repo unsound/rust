@@ -32,6 +32,10 @@
 //
 //===----------------------------------------------------------------------===//
 
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "Unix.h"
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/Config/config.h"

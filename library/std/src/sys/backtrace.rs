@@ -108,6 +108,7 @@ unsafe fn _print_fmt(fmt: &mut fmt::Formatter<'_>, print_fmt: PrintFmt) -> fmt::
                     res = bt_fmt.frame().symbol(frame, symbol);
                 }
             });
+            /* // Temporarily disabled since it doesn't link on QNX 8.0
             #[cfg(target_os = "nto")]
             if libc::__my_thread_exit as *mut libc::c_void == frame.ip() {
                 if !hit && print {
@@ -120,7 +121,7 @@ unsafe fn _print_fmt(fmt: &mut fmt::Formatter<'_>, print_fmt: PrintFmt) -> fmt::
                     );
                 }
                 return false;
-            }
+            }*/
             if !hit && print {
                 res = bt_fmt.frame().print_raw(frame.ip(), None, None, None);
             }

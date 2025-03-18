@@ -11,6 +11,10 @@
 //
 //===----------------------------------------------------------------------===//
 
+#ifdef __QNX__
+#define _QNX_SOURCE 1
+#endif
+
 #include "llvm/Support/raw_socket_stream.h"
 #include "llvm/Config/config.h"
 #include "llvm/Support/Error.h"

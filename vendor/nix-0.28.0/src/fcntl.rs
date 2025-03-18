@@ -341,12 +341,12 @@ fn readlink_maybe_at<P: ?Sized + NixPath>(
                 cstr.as_ptr(),
                 v.as_mut_ptr().cast(),
                 v.capacity() as size_t,
-            ),
+            ) as libc::ssize_t,
             None => libc::readlink(
                 cstr.as_ptr(),
                 v.as_mut_ptr().cast(),
                 v.capacity() as size_t,
-            ),
+            ) as libc::ssize_t,
         }
     })
 }

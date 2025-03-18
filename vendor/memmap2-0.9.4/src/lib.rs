@@ -46,7 +46,7 @@ use crate::os::{file_len, MmapInner};
 
 #[cfg(unix)]
 mod advice;
-#[cfg(unix)]
+#[cfg(all(unix, not(target_os = "nto")))]
 pub use crate::advice::{Advice, UncheckedAdvice};
 
 use std::fmt;
@@ -670,7 +670,7 @@ impl Mmap {
     /// Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise(&self, advice: Advice) -> Result<()> {
         self.inner
             .advise(advice as libc::c_int, 0, self.inner.len())
@@ -681,7 +681,7 @@ impl Mmap {
     /// Used with the [unchecked flags][UncheckedAdvice]. Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub unsafe fn unchecked_advise(&self, advice: UncheckedAdvice) -> Result<()> {
         self.inner
             .advise(advice as libc::c_int, 0, self.inner.len())
@@ -694,7 +694,7 @@ impl Mmap {
     /// The offset and length must be in the bounds of the memory map.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise_range(&self, advice: Advice, offset: usize, len: usize) -> Result<()> {
         self.inner.advise(advice as libc::c_int, offset, len)
     }
@@ -706,7 +706,7 @@ impl Mmap {
     /// The offset and length must be in the bounds of the memory map.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub unsafe fn unchecked_advise_range(
         &self,
         advice: UncheckedAdvice,
@@ -914,7 +914,7 @@ impl MmapRaw {
     /// Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise(&self, advice: Advice) -> Result<()> {
         self.inner
             .advise(advice as libc::c_int, 0, self.inner.len())
@@ -925,7 +925,7 @@ impl MmapRaw {
     /// Used with the [unchecked flags][UncheckedAdvice]. Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub unsafe fn unchecked_advise(&self, advice: UncheckedAdvice) -> Result<()> {
         self.inner
             .advise(advice as libc::c_int, 0, self.inner.len())
@@ -938,7 +938,7 @@ impl MmapRaw {
     /// Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise_range(&self, advice: Advice, offset: usize, len: usize) -> Result<()> {
         self.inner.advise(advice as libc::c_int, offset, len)
     }
@@ -950,7 +950,7 @@ impl MmapRaw {
     /// The offset and length must be in the bounds of the memory map.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub unsafe fn unchecked_advise_range(
         &self,
         advice: UncheckedAdvice,
@@ -1235,7 +1235,7 @@ impl MmapMut {
     /// Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise(&self, advice: Advice) -> Result<()> {
         self.inner
             .advise(advice as libc::c_int, 0, self.inner.len())
@@ -1246,7 +1246,7 @@ impl MmapMut {
     /// Used with the [unchecked flags][UncheckedAdvice]. Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub unsafe fn unchecked_advise(&self, advice: UncheckedAdvice) -> Result<()> {
         self.inner
             .advise(advice as libc::c_int, 0, self.inner.len())
@@ -1259,7 +1259,7 @@ impl MmapMut {
     /// The offset and length must be in the bounds of the memory map.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise_range(&self, advice: Advice, offset: usize, len: usize) -> Result<()> {
         self.inner.advise(advice as libc::c_int, offset, len)
     }
@@ -1271,7 +1271,7 @@ impl MmapMut {
     /// The offset and length must be in the bounds of the memory map.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn unchecked_advise_range(
         &self,
         advice: UncheckedAdvice,
@@ -1918,7 +1918,7 @@ mod test {
     }
 
     #[test]
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     fn advise() {
         let expected_len = 128;
         let tempdir = tempfile::tempdir().unwrap();

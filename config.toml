@@ -1,0 +1,44 @@
+# Use different pre-set defaults than the global defaults.
+#
+# See `src/bootstrap/defaults` for more information.
+# Note that this has no default value (x.py uses the defaults in `config.example.toml`).
+profile = 'dist'
+
+[llvm]
+
+optimize = true
+#ninja = true
+cflags = "-D_QNX_SOURCE=1"
+cxxflags = "-D_QNX_SOURCE=1"
+use-libcxx = true
+
+[build]
+
+# Which triples to produce a compiler toolchain for. Each of these triples will be bootstrapped from
+# the build triple themselves. In other words, this is the list of triples for which to build a
+# compiler that can RUN on that triple.
+#
+# Defaults to just the `build` triple.
+host = ['x86_64-pc-nto-qnx710']
+
+# Arguments passed to the `./configure` script, used during distcheck. You
+# probably won't fill this in but rather it's filled in by the `./configure`
+# script. Useful for debugging.
+configure-args = ['--host=x86_64-pc-nto-qnx710']
+
+[install]
+
+[rust]
+
+[target.x86_64-unknown-linux-gnu]
+
+[target.x86_64-pc-nto-qnx710]
+cc="qcc"
+# "ntox86_64-gcc"
+cxx="qcc"
+ar = "ntox86_64-ar"
+ranlib = "ntox86_64-ranlib"
+linker = "q++"
+
+[dist]
+

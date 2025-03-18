@@ -20,7 +20,7 @@ pub fn set_file_atime(p: &Path, atime: FileTime) -> io::Result<()> {
     set_times(p, Some(atime), None, false)
 }
 
-#[cfg(not(target_env = "uclibc"))]
+#[cfg(all(not(target_env = "uclibc"), not(target_os = "nto")))]
 #[allow(dead_code)]
 pub fn set_file_handle_times(
     f: &fs::File,
@@ -98,11 +98,14 @@ pub fn set_times(
     let p = CString::new(p.as_os_str().as_bytes())?;
     let times = [to_timeval(&atime), to_timeval(&mtime)];
     let rc = unsafe {
+        #[cfg(not(target_os = "nto"))]
         if symlink {
             libc::lutimes(p.as_ptr(), times.as_ptr())
         } else {
             libc::utimes(p.as_ptr(), times.as_ptr())
         }
+        #[cfg(target_os = "nto")]
+        libc::utimes(p.as_ptr(), times.as_ptr())
     };
     return if rc == 0 {
         Ok(())

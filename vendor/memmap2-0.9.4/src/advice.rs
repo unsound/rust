@@ -1,6 +1,7 @@
 /// Values supported by [`Mmap::advise`][crate::Mmap::advise] and [`MmapMut::advise`][crate::MmapMut::advise] functions.
 ///
 /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
+#[cfg(not(target_os = "nto"))]
 #[repr(i32)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
 pub enum Advice {
@@ -247,6 +248,7 @@ pub enum Advice {
 /// are updated by the kernel's memory management subsystem.
 ///
 /// [man_page]: https://man7.org/linux/man-pages/man2/madvise.2.html
+#[cfg(not(target_os = "nto"))]
 #[repr(i32)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
 pub enum UncheckedAdvice {

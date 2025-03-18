@@ -383,7 +383,7 @@ fn main() {
 }
 
 fn run(cmd: &mut Command) {
-    println!("running: {:?}", cmd);
+    println!("running (je-wtf): {:?}", cmd);
     let status = match cmd.status() {
         Ok(status) => status,
         Err(e) => panic!("failed to execute command: {}", e),

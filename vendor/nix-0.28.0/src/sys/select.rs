@@ -286,7 +286,7 @@ where
     R: Into<Option<&'a mut FdSet<'fd>>>,
     W: Into<Option<&'a mut FdSet<'fd>>>,
     E: Into<Option<&'a mut FdSet<'fd>>>,
-    T: Into<Option<&'a TimeSpec>>,
+    T: Into<Option<&'a mut TimeSpec>>,
     S: Into<Option<&'a SigSet>>,
 {
     let mut readfds = readfds.into();
@@ -307,7 +307,7 @@ where
     let readfds = readfds.map(|set| set as *mut _ as *mut libc::fd_set).unwrap_or(null_mut());
     let writefds = writefds.map(|set| set as *mut _ as *mut libc::fd_set).unwrap_or(null_mut());
     let errorfds = errorfds.map(|set| set as *mut _ as *mut libc::fd_set).unwrap_or(null_mut());
-    let timeout = timeout.map(|ts| ts.as_ref() as *const libc::timespec).unwrap_or(null());
+    let timeout = timeout.map(|ts| ts as *mut _ as *mut libc::timespec).unwrap_or(null_mut()); /* Note: Change mut to const when libc change is propagated. */
     let sigmask = sigmask.map(|sm| sm.as_ref() as *const libc::sigset_t).unwrap_or(null());
 
     let res = unsafe {

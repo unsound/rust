@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Helper script which works around qcc being fed the the '--target' option
+# during the rust build for .S files.
+# The '--target' option is a clang option which qcc neither supports nor needs.
+# TODO: Figure out why it's passed to qcc when building assembly sources.
+
+qcc_params=()
+i=0
+while [ $# -gt 0 ]; do
+    param="$1"
+    shift 1
+    #echo "Parameter $i: $param"
+    i=$(($i+1))
+    if [ "$param" == "--target=x86_64-pc-unknown" ]; then
+        continue
+    fi
+
+    qcc_params+=("$param")
+done
+
+#echo "Would invoke qcc with ${qcc_params[@]}..."
+"${QNX_HOST}/usr/bin/qcc" "${qcc_params[@]}"

@@ -157,6 +157,7 @@ pub fn compile_codegen_unit(
             .unwrap_or(tcx.sess.target.function_sections)
         {
             context.add_command_line_option("-ffunction-sections");
+            println!("Adding fdata-sections!");
             context.add_command_line_option("-fdata-sections");
         }
 

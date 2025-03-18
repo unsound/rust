@@ -44,7 +44,7 @@ use crate::os::{file_len, MmapInner};
 
 #[cfg(unix)]
 mod advice;
-#[cfg(unix)]
+#[cfg(all(unix, not(target_os = "nto")))]
 pub use crate::advice::Advice;
 
 use std::fmt;
@@ -625,7 +625,7 @@ impl Mmap {
     /// Advise OS how this memory map will be accessed. Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise(&self, advice: Advice) -> Result<()> {
         self.inner.advise(advice, 0, self.inner.len())
     }
@@ -637,7 +637,7 @@ impl Mmap {
     /// Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise_range(&self, advice: Advice, offset: usize, len: usize) -> Result<()> {
         self.inner.advise(advice, offset, len)
     }
@@ -816,7 +816,7 @@ impl MmapRaw {
     /// Advise OS how this memory map will be accessed. Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise(&self, advice: Advice) -> Result<()> {
         self.inner.advise(advice, 0, self.inner.len())
     }
@@ -828,7 +828,7 @@ impl MmapRaw {
     /// Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise_range(&self, advice: Advice, offset: usize, len: usize) -> Result<()> {
         self.inner.advise(advice, offset, len)
     }
@@ -1084,7 +1084,7 @@ impl MmapMut {
     /// Advise OS how this memory map will be accessed. Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise(&self, advice: Advice) -> Result<()> {
         self.inner.advise(advice, 0, self.inner.len())
     }
@@ -1096,7 +1096,7 @@ impl MmapMut {
     /// Only supported on Unix.
     ///
     /// See [madvise()](https://man7.org/linux/man-pages/man2/madvise.2.html) map page.
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     pub fn advise_range(&self, advice: Advice, offset: usize, len: usize) -> Result<()> {
         self.inner.advise(advice, offset, len)
     }
@@ -1652,7 +1652,7 @@ mod test {
     }
 
     #[test]
-    #[cfg(unix)]
+    #[cfg(all(unix, not(target_os = "nto")))]
     fn advise() {
         let expected_len = 128;
         let tempdir = tempfile::tempdir().unwrap();

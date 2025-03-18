@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Helper script which builds a cross-compilation Rust toolchain for building QNX
+# 8.0 Rust binaries on an x86_64 Linux host.
+
+if [ -z "$QNX800_DIR" ]; then
+    if [ $# -ne 1 ]; then
+	echo "usage: $(basename "$0") <path to qnx800 directory>"
+	exit 1
+    fi
+
+    QNX800_DIR="$1"
+else
+    if [ $# -ne 0 ]; then
+	echo "usage: $(basename "$0")"
+	exit 1
+    fi
+fi
+
+export QNX800_DIR
+
+. "$QNX800_DIR/qnxsdp-env.sh"
+
+# Patch in 'qcc' script which strips '--target' from the command line as this is
+# a clang option, not understood by gcc.
+# TODO: Figure out why the rust build system keeps adding it when compiling .S
+# files with assembly using CC.
+export PATH="$(realpath "$(dirname "$0")")/qcc-redirect-bin:$PATH"
+
+set -x
+
+CC=clang \
+    CXX=clang++ \
+    CXXFLAGS='-stdlib=libc++' \
+    CFLAGS_x86_64_pc_nto_qnx710='-Y_cxx -D_QNX_SOURCE=1' \
+    LDFLAGS_x86_64_pc_nto_qnx710='-Y_cxx -l socket -l c++' \
+    X86_64_PC_NTO_QNX710_OPENSSL_LIB_DIR="${QNX_TARGET}/x86_64/usr/lib" \
+    X86_64_PC_NTO_QNX710_OPENSSL_INCLUDE_DIR="${QNX_TARGET}/usr/include"\
+    X86_64_PC_NTO_QNX710_OPENSSL_DIR=/usr/ssl \
+    RUST_BACKTRACE=1 \
+    ./x.py build

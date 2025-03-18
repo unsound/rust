@@ -2463,6 +2463,7 @@ fn add_order_independent_options(
     }
 
     if flavor == LinkerFlavor::Llbc {
+        println!("Adding target because llbc...");
         cmd.link_args(&[
             "--target",
             &versioned_llvm_target(sess),
@@ -3353,8 +3354,9 @@ fn add_lld_args(
         // this should be manually passed if needed. We specify the target when
         // targeting a different linker flavor on macOS, and that's also always
         // the case when targeting WASM.
-        if sess.target.linker_flavor != sess.host.linker_flavor {
+        /*if sess.target.linker_flavor != sess.host.linker_flavor {
+            println!("Adding target because of linker flavor mismatch...");
             cmd.cc_arg(format!("--target={}", versioned_llvm_target(sess)));
-        }
+        }*/
     }
 }
