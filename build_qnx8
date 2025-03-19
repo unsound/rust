@@ -32,10 +32,15 @@ set -x
 CC=clang \
     CXX=clang++ \
     CXXFLAGS='-stdlib=libc++' \
-    CFLAGS_x86_64_pc_nto_qnx710='-Y_cxx -D_QNX_SOURCE=1' \
-    LDFLAGS_x86_64_pc_nto_qnx710='-Y_cxx -l socket -l c++' \
+    CFLAGS_x86_64_pc_nto_qnx710='-Vgcc_ntox86_64 -Y_cxx -D_QNX_SOURCE=1' \
+    LDFLAGS_x86_64_pc_nto_qnx710='-Vgcc_ntox86_64 -Y_cxx -l socket -l c++' \
     X86_64_PC_NTO_QNX710_OPENSSL_LIB_DIR="${QNX_TARGET}/x86_64/usr/lib" \
     X86_64_PC_NTO_QNX710_OPENSSL_INCLUDE_DIR="${QNX_TARGET}/usr/include"\
     X86_64_PC_NTO_QNX710_OPENSSL_DIR=/usr/ssl \
+    CFLAGS_aarch64_unknown_nto_qnx710='-Vgcc_ntoaarch64le -Y_cxx -D_QNX_SOURCE=1' \
+    LDFLAGS_aarch64_unknown_nto_qnx710='-Vgcc_ntoaarch64le -Y_cxx -l socket -l c++' \
+    AARCH64_UNKNOWN_NTO_QNX710_OPENSSL_LIB_DIR="${QNX_TARGET}/aarch64/usr/lib" \
+    AARCH64_UNKNOWN_NTO_QNX710_OPENSSL_INCLUDE_DIR="${QNX_TARGET}/usr/include"\
+    AARCH64_UNKNOWN_NTO_QNX710_OPENSSL_DIR=/usr/ssl \
     RUST_BACKTRACE=1 \
     ./x.py build

@@ -19,12 +19,13 @@ use-libcxx = true
 # compiler that can RUN on that triple.
 #
 # Defaults to just the `build` triple.
-host = ['x86_64-pc-nto-qnx710']
+host = [ 'x86_64-unknown-linux-gnu' ]
+target = [ 'x86_64-unknown-linux-gnu', 'x86_64-pc-nto-qnx710', 'aarch64-unknown-nto-qnx710' ]
 
 # Arguments passed to the `./configure` script, used during distcheck. You
 # probably won't fill this in but rather it's filled in by the `./configure`
 # script. Useful for debugging.
-configure-args = ['--host=x86_64-pc-nto-qnx710']
+configure-args = [ '--host=x86_64-unknown-linux-gnu', '--target=x86_64-unknown-linux-gnu,x86_64-pc-nto-qnx710,aarch64-unknown-nto-qnx710' ]
 
 [install]
 
@@ -38,6 +39,14 @@ cc="qcc"
 cxx="qcc"
 ar = "ntox86_64-ar"
 ranlib = "ntox86_64-ranlib"
+linker = "q++"
+
+[target.aarch64-unknown-nto-qnx710]
+cc="qcc"
+# "ntoaarch64-gcc"
+cxx="qcc"
+ar = "ntoaarch64-ar"
+ranlib = "ntoaarch64-ranlib"
 linker = "q++"
 
 [dist]
