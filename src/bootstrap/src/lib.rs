@@ -471,6 +471,10 @@ impl Build {
     /// The given `err_hint` will be shown to the user if the submodule is not
     /// checked out and submodule management is disabled.
     pub fn require_submodule(&self, submodule: &str, err_hint: Option<&str>) {
+        if self.rust_info().is_from_tarball() {
+            return;
+        }
+
         // When testing bootstrap itself, it is much faster to ignore
         // submodules. Almost all Steps work fine without their submodules.
         if cfg!(test) && !self.config.submodules() {
@@ -893,7 +897,7 @@ impl Build {
         let executed_at = std::panic::Location::caller();
 
         self.verbose(|| {
-            println!("running(e): {command:?} (created at {created_at}, executed at {executed_at})")
+            println!("running: {command:?} (created at {created_at}, executed at {executed_at})")
         });
 
         let cmd = command.as_command_mut();
@@ -901,7 +905,6 @@ impl Build {
         cmd.stderr(stderr.stdio());
 
         let output = cmd.output();
-        println!("Finished running(e): {command:?} (created at {created_at}, executed at {executed_at})");
 
         use std::fmt::Write;
 
@@ -909,7 +912,6 @@ impl Build {
         let output: CommandOutput = match output {
             // Command has succeeded
             Ok(output) if output.status.success() => {
-                writeln!(message, "Success!").unwrap();
                 CommandOutput::from_output(output, stdout, stderr)
             }
             // Command has started, but then it failed

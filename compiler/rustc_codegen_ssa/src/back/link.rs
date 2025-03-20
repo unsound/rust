@@ -2463,7 +2463,6 @@ fn add_order_independent_options(
     }
 
     if flavor == LinkerFlavor::Llbc {
-        println!("Adding target because llbc...");
         cmd.link_args(&[
             "--target",
             &versioned_llvm_target(sess),

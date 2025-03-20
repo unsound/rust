@@ -11,10 +11,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifdef __QNX__
-#define _QNX_SOURCE 1
-#endif
-
 #include "llvm/Support/ErrorHandling.h"
 #include "llvm-c/ErrorHandling.h"
 #include "llvm/ADT/SmallVector.h"

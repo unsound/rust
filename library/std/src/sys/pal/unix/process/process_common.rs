@@ -581,7 +581,6 @@ impl fmt::Debug for Command {
             debug_command.finish()
         } else {
             if let Some(ref cwd) = self.cwd {
-                println!("Printing directive: cd {cwd:?} && ");
                 write!(f, "cd {cwd:?} && ")?;
             }
             if self.env.does_clear() {

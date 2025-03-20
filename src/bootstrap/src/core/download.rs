@@ -77,7 +77,7 @@ impl Config {
         if self.dry_run() && !cmd.run_always {
             return true;
         }
-        self.verbose(|| println!("running(d): {cmd:?}"));
+        self.verbose(|| println!("running: {cmd:?}"));
         check_run(cmd, self.is_verbose())
     }
 

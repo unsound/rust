@@ -426,7 +426,6 @@ impl Config {
     /// This will run both the build system generator command as well as the
     /// command to build the library.
     pub fn build(&mut self) -> PathBuf {
-        println!("Building with cmake!");
         let target = match self.target.clone() {
             Some(t) => t,
             None => {
@@ -522,7 +521,6 @@ impl Config {
             cmd.arg("-Wdev");
             cmd.arg("--debug-output");
         }
-        println!("cmd={:?}", cmd);
 
         cmd.arg(&self.path).current_dir(&build);
         let mut is_ninja = false;
@@ -940,7 +938,7 @@ impl Config {
 }
 
 fn run(cmd: &mut Command, program: &str) {
-    println!("running (cmake): {:?}", cmd);
+    println!("running: {:?}", cmd);
     let status = match cmd.status() {
         Ok(status) => status,
         Err(ref e) if e.kind() == ErrorKind::NotFound => {

@@ -2219,7 +2219,7 @@ pub fn stream_cargo(
         cargo.arg(arg);
     }
 
-    builder.verbose(|| println!("running(a): {cargo:?}"));
+    builder.verbose(|| println!("running: {cargo:?}"));
 
     if builder.config.dry_run() {
         return true;

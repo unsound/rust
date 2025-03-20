@@ -15,10 +15,6 @@
 //===          code that is guaranteed to work on *all* UNIX variants.
 //===----------------------------------------------------------------------===//
 
-#ifdef __QNX__
-#define _QNX_SOURCE 1
-#endif
-
 #include "llvm/Support/Program.h"
 
 #include "Unix.h"

@@ -336,7 +336,7 @@ fn run(cmd: &mut Command) {
 }
 
 fn execute(cmd: &mut Command, on_fail: impl FnOnce()) {
-    println!("running (je-wtf 2): {cmd:?}");
+    println!("running: {cmd:?}");
     let status = match cmd.status() {
         Ok(status) => status,
         Err(e) => panic!("failed to execute command: {}", e),

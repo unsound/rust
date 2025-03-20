@@ -15,10 +15,6 @@
 //===          is guaranteed to work on *all* UNIX variants.
 //===----------------------------------------------------------------------===//
 
-#ifdef __QNX__
-#define _QNX_SOURCE 1
-#endif
-
 #include "Unix.h"
 #include <limits.h>
 #include <stdio.h>

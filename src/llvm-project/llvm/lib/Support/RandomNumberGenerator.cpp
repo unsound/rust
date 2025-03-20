@@ -12,10 +12,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifdef __QNX__
-#define _QNX_SOURCE 1
-#endif
-
 #include "llvm/Support/RandomNumberGenerator.h"
 
 #include "DebugOptions.h"

@@ -351,7 +351,7 @@ pub(crate) fn spawn(
         }
     }
 
-    cargo_output.print_debug(&format_args!("running (cc5/lib): {:?}", cmd));
+    cargo_output.print_debug(&format_args!("running: {:?}", cmd));
 
     let cmd = ResetStderr(cmd);
     let child = cmd.0.stderr(cargo_output.stdio_for_warnings()).spawn();

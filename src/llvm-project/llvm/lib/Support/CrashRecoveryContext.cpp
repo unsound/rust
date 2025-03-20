@@ -6,10 +6,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifdef __QNX__
-#define _QNX_SOURCE 1
-#endif
-
 #include "llvm/Support/CrashRecoveryContext.h"
 #include "llvm/Config/llvm-config.h"
 #include "llvm/Support/ErrorHandling.h"

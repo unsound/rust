@@ -402,7 +402,7 @@ pub(crate) fn spawn(
         }
     }
 
-    cargo_output.print_debug(&format_args!("running (cc8/lib): {:?}", cmd));
+    cargo_output.print_debug(&format_args!("running: {:?}", cmd));
 
     let cmd = ResetStderr(cmd);
     let child = cmd
